@@ -1,0 +1,32 @@
+<% provide(:title, "Log In / Create New Account") %>
+<h1>Log In / Create New Account</h1>
+
+<div class="LoginForm">
+  <div class="column">
+      <h3>EXISTING IMO CLOTHING CUSTOMER</h3>
+	<%= form_for(:session, url: login_path) do |f| %>
+
+	<%= f.label :email %>
+	<%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password %>
+	<%= f.password_field :password, class: 'form-control' %>
+
+	<%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+    
+  </div>
+</div>
+
+    <div class="column">
+        <h3>NEW IMO CLOTHING CUSTOMER</h3>
+        <p>If you still don't have a imoclothing.com account,
+        use this option to sign up for a new account.</p>
+        <p>By giving us your personal details, your transactions will be quicker and more enjoyable.</p>
+        <br>
+        <p style="font-size: 26px">New user? <%= link_to "Sign up now!", signup_path %></p>
+    </div>
+
+<br>
+<br>
+<br>
