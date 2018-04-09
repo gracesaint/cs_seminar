@@ -11,7 +11,7 @@
     <th>Items:</th>
   </thead>
   <tbody>
-    <td> @order.user.name  </td>
+      <td><%= @order.user.name if @order.user %></td>
       <td><%= @order.status %></td>
       <td><%= @order.order_items.count %></td>
   </tbody>
