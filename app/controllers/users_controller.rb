@@ -70,13 +70,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def self.find_or_create_by_auth(auth_data)
-  find_or_create_by_provider_and_uid(auth_data["provider"], auth_data["uid"],
-                                     name: auth_data["info"]["name"])
-  end
 
-
-  private
   
   #move to non-private if this does not work
   def logged_in_user
@@ -89,6 +83,7 @@ class UsersController < ApplicationController
     end
   end
   
+  private
   
   def correct_user
     @user = User.find(params[:id])

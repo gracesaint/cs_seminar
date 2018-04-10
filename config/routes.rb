@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   resources :products
   get 'sessions/new'
   
-  match '/auth/:provider/callback', to: 'sessions#create', via: :get
+#  match '/auth/:provider/callback', to: 'sessions#create', via: :get
 
 
-  match "/login" => redirect("/auth/twitter"), as: :login, via: :get
-  match "/logout" => "sessions#destroy", as: :logout, via: :get
+#  match "/login" => redirect("/auth/twitter"), as: :login, via: :get
+#  match "/logout" => "sessions#destroy", as: :logout, via: :get
 
-  root to: "products#index"
 
   resources :users
   get 'main/contact'

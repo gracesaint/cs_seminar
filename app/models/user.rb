@@ -12,6 +12,7 @@ class User < ApplicationRecord
     validates :password, presence: true, length: {minimum: 6}
    
     has_many :orders
+    has_many :reviews, dependent: :destroy
    
     
 end

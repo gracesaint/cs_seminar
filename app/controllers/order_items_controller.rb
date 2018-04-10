@@ -74,24 +74,24 @@ class OrderItemsController < ApplicationController
 
   private
   
-#  def load_order
-#      begin
-#        @order = Order.find(session[:order_id])
-#      rescue ActiveRecord::RecordNotFound
-#        @order = Order.create(status: "unsubmitted")
-#        session[:order_id] = @order.id
-#      end
-#    end
-    
-    
-    def load_order
-        @order = Order.find_or_initialize_by(id: session[:order_id], 
-                              status: "unsubmitted", user_id: session[:user_id])
-      if @order.new_record?
-        @order.save!
+  def load_order
+      begin
+        @order = Order.find(session[:order_id])
+      rescue ActiveRecord::RecordNotFound
+        @order = Order.create(status: "unsubmitted")
         session[:order_id] = @order.id
       end
     end
+    
+    
+#    def load_order
+#        @order = Order.find_or_initialize_by(id: session[:order_id], 
+#                              status: "unsubmitted", user_id: session[:user_id])
+#      if @order.new_record?
+#        @order.save!
+#        session[:order_id] = @order.id
+#      end
+#    end
     
     
   
