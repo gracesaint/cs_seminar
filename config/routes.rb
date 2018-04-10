@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reviews
+  resources :reviews, except: [:show, :index]
   resources :orders
   resources :order_items
   resources :products
