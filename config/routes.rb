@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
-  resources :reviews, except: [:show, :index]
+  get 'static_pages/home'
+
+  get 'static_pages/display'
+
+  get 'static_pages/search'
+  
+  #search bar routes
+  get 'static_pages/search', to: 'static_pages#search'
+  post 'static_pages/display', to: 'static_pages#display'
+
+  resources :reviews
   resources :orders
   resources :order_items
-  resources :products
+  resources :products do
+    resources :reviews, except: [:show, :index]
+  end
   get 'sessions/new'
   
 #  match '/auth/:provider/callback', to: 'sessions#create', via: :get

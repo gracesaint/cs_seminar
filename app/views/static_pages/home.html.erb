@@ -1,0 +1,6 @@
+<div id="searchBar">
+    <%= form_tag(controller: "static_pages", action: "display", :method => "post", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], length: "10", placeholder: "Search Clothing by type, size or color", class: "text_f form-control" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+</div>

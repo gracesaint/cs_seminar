@@ -1,0 +1,56 @@
+<% provide(:title, "Search Results")%>
+
+<body>
+  
+<div class="navigation">
+    <ul>
+        <li><%= link_to "NEW IN", controller: "main", action: "home" %></li>
+        <li><%= link_to "WOMEN", controller: "main", action: "home" %></li>
+        <li><%= link_to "MEN", controller: "main", action: "home" %></li>
+        <li><%= link_to "SALE", controller: "main", action: "home" %></li>
+    </ul>
+</div>
+
+<div class="itemsFound">
+<% if @products %>
+    <span><%= @products.count %> Item(s) Found</span>
+<% end %>
+</div>
+
+<% if @products.count >= 1 %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Color</th>
+      <th>Size</th>
+      <!-- th colspan="3"></th -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.color %></td>
+        <td><%= product.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+</body>

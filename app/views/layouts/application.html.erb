@@ -34,15 +34,21 @@
       
       </div>
       
-
   
     <div class="container1">
       <nav>
         <%= image_tag "Imo Clothing.jpg" %>
         <ul class="nav navbar-nav navbar-right">
+           <li><%= link_to image_tag "SeachBar.jpg", controller: '#', action: '#', :size => '20x20' %></li>
+       <div class="searchBar">
+          <%= form_tag(controller: "static_pages", action: "display", :method => "post", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Clothing by color, type or size", class: "text_f form-control" %>
+          <!-- <%= submit_tag "Search", class: "btn btn-primary" %> -->
+         <% end %>
+      </div>
           <li><%= link_to "Home", controller: "main", action: "home" %></li>
           <li><%= link_to "Contact", controller: "main", action: "contact" %></li>
-          <li><%= link_to "Cart", order_items_path %></li>
+          <li><%= link_to "Cart", products_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Profile", current_user %></li>
           <li><%= link_to "Users", users_path if current_user.admin? %></li>
