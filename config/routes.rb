@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'search/index'
+
+  get 'search/results'
+  resources :search
+
   get 'static_pages/home'
 
   get 'static_pages/display'

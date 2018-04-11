@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     @reviews = Review.all
+    @products = Product.all
   end
 
   # GET /reviews/1
@@ -20,6 +21,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    
   end
 
   # POST /reviews

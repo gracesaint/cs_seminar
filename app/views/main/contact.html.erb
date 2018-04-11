@@ -1,15 +1,22 @@
 <% provide(:title, "Contact")%>
-
-<body>
-  
 <div class="navigation">
     <ul>
-        <li><%= link_to "NEW IN", controller: "products", action: "index" %></li>
-        <li><%= link_to "WOMEN", controller: "products", action: "index" %></li>
-        <li><%= link_to "MEN", controller: "products", action: "index" %></li>
-        <li><%= link_to "SALE", controller: "products", action: "index" %></li>
+     <li><%= link_to "NEW IN", controller: "products", action: "index" %></li>
+     <div class="dropdown">
+       <button class="dropbtn"><li><%= link_to "WOMEN", controller: "products", action: "index" %></li></button>
+        <div class="dropdown-content">
+          <a href="#">NEW IN</a>
+          <a href="#">TOPS</a>
+          <a href="#">BOTTOMS</a>
+          <a href="#">DRESSES</a>
+          <a href="#">ROMPERS</a>
+        </div>
+      </div>
+        <li><%= link_to "MEN", controller: "main", action: "home" %></li>
+        <li><%= link_to "SALE", controller: "main", action: "home" %></li>
     </ul>
 </div>
+
 
 <div class="content">
     
@@ -67,5 +74,5 @@
   
   
   
-</body>
+
 
