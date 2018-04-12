@@ -15,8 +15,9 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-   # @products = Product.find(params[:product_id])
+  #  @products = Product.find(params[:product_id])
     @reviews = Review.where(product_id: @product.id)
+    @products = Product.all
   end
 
   # GET /products/new

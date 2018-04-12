@@ -2,7 +2,6 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
   before_action :load_order, only: [:create]
 
-
   # GET /order_items
   # GET /order_items.json
   def index
@@ -28,14 +27,14 @@ class OrderItemsController < ApplicationController
   # POST /order_items
   # POST /order_items.json
   def create
-  # @order_item = OrderItem.new(quantity: 1, product_id: params[:product_id], order_id: @order.id)
+  #  @order_item = OrderItem.new(product_id: params[:product_id], order_id: @order.id)
+ #  @order_item = OrderItem.new(quantity: 1, product_id: params[:product_id], order_id: @order.id)
    @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id], order_id: @order.id)
-  #  @order_item = @order.order_items.find_or_initialize_by_product_id(params[:product_id])
-
-    
+  
     respond_to do |format|
-      @order_item.quantity = @order_item.quantity+1
+     
       if @order_item.save
+        @order_item.quantity += 1
         format.html { redirect_to @order, notice: 'Order item was successfully created.' }
         format.json { render :show, status: :created, location: @order_item }
       else
@@ -48,13 +47,14 @@ class OrderItemsController < ApplicationController
   # PATCH/PUT /order_items/1
   # PATCH/PUT /order_items/1.json
   def update
+    @order_item = OrderItem.find(params[:id])
     respond_to do |format|
       if @order_item.update(order_item_params)
         format.html { redirect_to order_path (session[:order_id]), notice: 'Order item was successfully updated.' }
         format.json { render :show, status: :ok, location: @order_item }
-      elsif params[:order_item][:quantity].to_i
-        @order_item.destroy
-        format.html { redirect_to order_path (session[:order_id]), notice: 'Item was successfully removed. '}
+     # elsif params[:order_item][:quantity].to_i
+      #  @order_item.destroy
+      #  format.html { redirect_to order_path (session[:order_id]), notice: 'Item was successfully removed. '}
       else
         format.html { render :edit }
         format.json { render json: @order_item.errors, status: :unprocessable_entity }
@@ -74,25 +74,16 @@ class OrderItemsController < ApplicationController
 
   private
   
+#working version:
+
   def load_order
       begin
-        @order = Order.find(session[:order_id])
+       @order = Order.find(session[:order_id])
       rescue ActiveRecord::RecordNotFound
         @order = Order.create(status: "unsubmitted")
         session[:order_id] = @order.id
-      end
     end
-    
-    
-#    def load_order
-#        @order = Order.find_or_initialize_by(id: session[:order_id], 
-#                              status: "unsubmitted", user_id: session[:user_id])
-#      if @order.new_record?
-#        @order.save!
-#        session[:order_id] = @order.id
-#      end
-#    end
-    
+    end
     
   
     # Use callbacks to share common setup or constraints between actions.
