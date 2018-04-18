@@ -1,11 +1,38 @@
+<script src="//code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+
+<script src="lightzoom.js">
+  $('.image-selector').lightzoom(
+    glassSize   : 175
+    zoomPower   : 3
+
+);
+</script>
+
+
+
 <div class="row">
-  <div class="col-md-9">
-    
+<div class="col-md-8">
+  
 <p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @product.image_url %>
+</p>
+  
+<!-- p>
+  < image_tag @product.image_url, :size => '150x150' %>
+</p -->
+    
+</div>
+
+<div class="col-md-4">
 
 <h2>
   <strong><%= @product.title %></strong>
 </h2>
+
+
+<div class="star-rating" data-score= <%= @avg_rating %> ></div>
 
 <p>
   <strong>Price:</strong>
@@ -27,9 +54,6 @@
   <%= @product.description %>
 </p>
 
-<p>
-  <%= image_tag @product.image_url %>
-</p>
 
 <br>
 <br>
@@ -38,13 +62,9 @@
 
 <br>
 
-
 <%= link_to "Write a Review", new_product_review_path(@product), class: "btn btn-primary" %>
 
 </div>
-  
-
-  
 </div>
 
 <hr>
@@ -57,18 +77,17 @@
 </div>
 
 
-
 <hr>
 <h3>REVIEWS</h3>
 <% if @reviews.blank? %>
 <h3>No reviews yet. Be the first to write one!</h3>
 <% else %>
   <% @reviews.each do |review| %>
-  <p><strong>Rating: </strong><%= review.rating %></p>
+  <strong>Rating: </strong><!--  review.rating %-->
+  <div class="star-rating" data-score= <%= review.rating %>> </div>
   <p><strong>Comment: </strong><%= review.comment %></p>
   <hr>
-  <% end %>
-
+<% end %>
 <% end %>
 
 
@@ -77,3 +96,18 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+
+<script>
+  $('.star-rating').raty(
+    {path: 'images/ratings',
+    readOnly: true,
+      score: function(){
+        return $(this).attr('data-score');
+      }
+    });
+</script>
+
+
+
+

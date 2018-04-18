@@ -1,8 +1,15 @@
 <% provide(:title, "Home")%>
 <div class="navigation">
     <ul>
-     <li><%= link_to "NEW IN", controller: "products", action: "index" %></li>
-     <div class="dropdown">
+      <div class="dropdown">
+     <button class="dropbtn"><li><%= link_to "NEW IN", controller: "products", action: "index" %></li></button>
+       <div class="dropdown-content">
+         <a href="https://imoclothing-2018-gracesaint2018.c9users.io/products">WOMEN</a>
+         <a href="#">MEN</a>
+       </div>
+      </div>
+     
+       <div class="dropdown">
        <button class="dropbtn"><li><%= link_to "WOMEN", controller: "products", action: "index" %></li></button>
         <div class="dropdown-content">
           <a href="https://imoclothing-2018-gracesaint2018.c9users.io/products">NEW IN</a>
@@ -12,10 +19,11 @@
           <a href="#">ROMPERS</a>
         </div>
       </div>
-        <li><%= link_to "MEN", controller: "main", action: "home" %></li>
-        <li><%= link_to "SALE", controller: "main", action: "home" %></li>
+        <button class="dropbtn"><li><%= link_to "MEN", controller: "main", action: "home" %></li></button>
+        <button class="dropbtn"><li><%= link_to "SALE", controller: "main", action: "home" %></li></button>
     </ul>
 </div>
+
 
 
 <!-- Container for the image gallery -->

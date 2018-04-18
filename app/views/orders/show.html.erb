@@ -19,9 +19,10 @@
 
 <hr>
 
-<table class="checkout">
+<table id= "products" style="margin-left: 30px; border-collapse: collapse;" border="0"; cellspacing="0";>
   <thead>
   <tr>
+    <th>Image</th>
     <th>Product Name</th>
     <th>Color</th>
     <th>Size</th>
@@ -31,16 +32,16 @@
     <th>Remove</th>
   </thead>
   
-  <tbody>
+  <tbody style="border-left: 0px none; border-right: 0px none;">
 
    <% @order.order_items.each do | item | %>
     </tr>
-  <!--    <td>< image_tag "products/#{product.image_url}" </td> -->
+      <td><%= image_tag "products/#{item.product.image_url}" %></td>
       <td> <%= item.product.title %></td>
       <td> <%= item.product.color %></td>
       <td> <%= item.product.size %></td>
       <td> <%= link_to item.quantity, edit_order_item_path(item) %></td>
-      <!-- td>  print_stock(product.stock, item.quantity) %></td -->
+      <!-- td><  print_stock(product.stock, item.quantity) %></td -->
       <td> <%= item.product.price %></td>
       <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>
@@ -62,7 +63,7 @@
  
 <hr>
 
-<%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>
+<%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>  |
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', products_path %>

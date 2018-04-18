@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   end
   
   
+  
   def load_order
       @order = Order.find_or_initialize_by(id: session[:order_id], status: "unsubmitted")
       if @order.new_record?

@@ -1,15 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-    if params[:search]
-    @products = Product.search(params[:search]).order("created_at DESC")
-  else
-    @products = Product.all.order('created_at DESC')
-  end
+    @users = User.all
+     @products = Product.all
+    
+    
   end
 
   # GET /products/1
@@ -18,6 +16,11 @@ class ProductsController < ApplicationController
   #  @products = Product.find(params[:product_id])
     @reviews = Review.where(product_id: @product.id)
     @products = Product.all
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+    @avg_rating = @reviews.average(:rating).round(2)
+   end
   end
 
   # GET /products/new

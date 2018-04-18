@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
     @products = Product.all
+    @users = User.all
   end
 
   # GET /reviews/1
@@ -16,6 +17,13 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    @options = {}
+    user = User.all
+    if user 
+      user.each do |u|
+        @options[u.name] = u.id
+      end
+    end
     @review = Review.new
   end
 
