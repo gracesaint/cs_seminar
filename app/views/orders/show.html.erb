@@ -41,7 +41,7 @@
       <td> <%= item.product.color %></td>
       <td> <%= item.product.size %></td>
       <td> <%= link_to item.quantity, edit_order_item_path(item) %></td>
-      <!-- td><  print_stock(product.stock, item.quantity) %></td -->
+      <!-- td><   print_stock(item.product.stock, item.quantity) %></td -->
       <td> <%= item.product.price %></td>
       <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>

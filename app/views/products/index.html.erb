@@ -2,6 +2,17 @@
 
 <h1>Women's Clothing</h1>
 
+<div class="row">
+<% @products.each do |product| %>
+<div class="col-md-3">
+  <%= image_tag "products/#{product.image_url}" %>
+  <%= link_to product.title, product %>
+  <%= print_price(product.price) %>
+</div>
+<% end %>
+</div>
+
+
 <table id= "products" style="margin-left: 30px; border-collapse: collapse;" border="0"; cellspacing="0";>
   <thead>
     <tr>

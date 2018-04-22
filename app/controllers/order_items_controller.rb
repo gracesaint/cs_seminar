@@ -26,6 +26,7 @@ class OrderItemsController < ApplicationController
   # POST /order_items.json
   def create
     @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id], order_id: @order.id)
+  
     
     respond_to do |format|
       @order_item.quantity = @order_item.quantity
@@ -55,7 +56,8 @@ class OrderItemsController < ApplicationController
       end
     end
   end
- 
+  
+
   
 
   # DELETE /order_items/1

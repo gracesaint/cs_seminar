@@ -402,7 +402,9 @@ a{
   top: 0;
 }
 
-/* The dots/bullets/indicators 
+*/
+
+// The dots/bullets/indicators 
 .dot {
   cursor:pointer;
   height: 15px;
@@ -582,14 +584,14 @@ table, th, td{
 .link-container  {
     float: left;
     padding: 10px;
-    margin-left: 60px;
+    margin-left: 150px;
 }
 
 
 .centered {
     position: absolute;
-    top: 118%;
-    left: 28%;
+    top: 144%;
+    left: 33%;
     transform: translate(-50%, -50%);
 }
 
@@ -608,8 +610,8 @@ table, th, td{
 
 .centered1 {
     position: absolute;
-    top: 118%;
-    left: 73%;
+    top: 148%;
+    left: 80%;
     transform: translate(-50%, -50%);
 }
 
@@ -622,8 +624,8 @@ table, th, td{
 
 .centered2 {
     position: absolute;
-    top: 162%;
-    left: 26%;
+    top: 200%;
+    left: 33%;
     transform: translate(-50%, -50%);
 }
 
@@ -636,8 +638,8 @@ table, th, td{
 
 .centered3 {
     position: absolute;
-    top: 162%;
-    left: 73%;
+    top: 200%;
+    left: 80%;
     transform: translate(-50%, -50%);
 }
 
